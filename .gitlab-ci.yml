@@ -1,0 +1,28 @@
+before_script:
+  - fuser -i 3000/tcp
+  - fuser -k 3000/udp
+  - apt update && apt upgrade
+
+stages:
+  - build
+  - deploy
+
+build:
+  stage: build
+  tags: docker
+  script:
+    - apt install curl
+    - curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
+    - npm install
+    - npm build
+
+deploy:
+  stage: deploy
+  only:
+    - master
+  tags: ssh
+  script: 
+    - apt install curl
+    - curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
+    - npm install
+    - forever start app.js
