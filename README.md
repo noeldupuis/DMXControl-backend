@@ -28,9 +28,12 @@ C'est ce serveur qui repose dans ce GIT. Il doit permettre d'enregister un serve
 Pour un client, ce serveur doit permettre de creer/connecter des utilisateurs, de recuperer des valeurs de channels, de definir leur valeur, d'enregistrer des fixtures, d'enregistrer une interface graphique sur son compte utilisateur,  de lister ses appareils, se connecter a un appareil, et de recuperer la qualite de connexion de l'appareil.
 Dautres fonctionnalites peuvent etre ajoutees en cours de creation (fonctions, timeline...).
 
-L'objectif de la version 0.3 est de prodiguer la possibilité de contrôler un appareil DMX seul, via une interface Web) via des sliders et des boutons. Dans la version 0.5, il sera possible de creer des comptes utilisateurs et d'enregistrer des fixtures.
+L'objectif de la version 0.3 est de prodiguer la possibilité de contrôler un appareil DMX seul, via une interface Web) via des sliders et des boutons. 
+
+Dans la version 0.5, il sera possible de creer des comptes utilisateurs et d'enregistrer des fixtures.
+
 Nous avons vu que nous allions utiliser SocketIO pour ces transferts de donnees.
-Precisons que les channels sont indicees entre 0 et 511, ma8s dans les vues, l'indiçage commencera bien évidemment à 1.
+Precisons que les channels sont indicees entre 0 et 511, mais dans les vues, l'indiçage commencera bien évidemment à 1.
 Voici les évenements auquels le serveur pourra repondre:
 
 	- "getChannels" :
