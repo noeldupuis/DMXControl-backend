@@ -1,4 +1,4 @@
-#DMX Controller
+# DMX Controller
 
 Ce programme est un serveur ecrit en NodeJS qui permet de controller de multiples appareils DMX via différents client (Web et Android).
 
@@ -33,22 +33,22 @@ Nous avons vu que nous allions utiliser SocketIO pour ces transferts de donnees.
 Precisons que les channels sont indicees entre 0 et 511, ma8s dans les vues, l'indiçage commencera bien évidemment à 1.
 Voici les évenements auquels le serveur pourra repondre:
 
-- "getChannels" :
-Permet de récupérer les données d'un ensemble de channels
-INPUT: Objet JavaScript avec pour données :
-  - channels : Array<int>
-OUTPUT: Objet JavaScript avec pour donnees: 
-  - values: Array<Object> chaque objet ayant une clé index et value.
+	- "getChannels" :
+		- Permet de récupérer les données d'un ensemble de channels
+		- INPUT: Objet JavaScript avec pour données :
+  			- channels : Array<int>
+		- OUTPUT: Objet JavaScript avec pour donnees: 
+  			- values: Array<Object> chaque objet ayant une clé index et value.
   
-  - "getAllChannels" :
-Permet de récupérer l'intégralité des channels avec leurs valeurs
-INPUT: aucun
-OUTPUT: Array<Object>(512) chaque objet representant une channel avec son index, et sa valeur.
+  	- "getAllChannels" :
+		- Permet de récupérer l'intégralité des channels avec leurs valeurs
+		- INPUT: aucun
+		- OUTPUT: Array<Object>(512) chaque objet representant une channel avec son index, et sa valeur.
 
-  - "setChannel" :
-Permet de definir la valeur d'une channel.
-INPUT: Objet JavaScript representant une channel: index, value
-OUTPUT: aucun
+  	- "setChannel" :
+		- Permet de efinir la valeur d'une channel.
+		- INPUT: Objet JavaScript representant une channel: index, value
+		- OUTPUT: aucun
 
-la suite viendra ultérieurement, de nombreuses discussions sont en cours sur la gestion des entrées et sorties.
+La suite viendra ultérieurement, de nombreuses discussions sont en cours sur la gestion des entrées et sorties.
 
