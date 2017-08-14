@@ -16,7 +16,7 @@ build:
   script:
     - apt install -y curl
     - curl -sL https://deb.nodesource.com/setup_6.x | bash -
-    - apt install nodejs
+    - apt install -y nodejs
     - npm install
     - npm build
 
@@ -27,6 +27,6 @@ deploy:
   tags: 
     - ssh
   script:
-    - apt install nodejs
+    - apt install -y nodejs
     - npm install
     - forever start app.js
