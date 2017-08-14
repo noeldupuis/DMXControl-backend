@@ -1,8 +1,6 @@
 image: ubuntu:xenial
 
 before_script:
-  - apt update && apt upgrade && apt install psmisc
-  - fuser -k 3000/tcp && fuser -k 3000/udp
   - apt update && apt upgrade -y
 
 stages:
@@ -29,4 +27,5 @@ deploy:
   script:
     - apt install -y nodejs
     - npm install
+    - forever stopall
     - forever start bin/www
