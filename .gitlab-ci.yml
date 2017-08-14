@@ -14,7 +14,7 @@ build:
   tags: 
     - docker
   script:
-    - apt install curl
+    - apt install -y curl
     - curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
     - npm install
     - npm build
