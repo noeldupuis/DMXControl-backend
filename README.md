@@ -28,9 +28,9 @@ C'est ce serveur qui repose dans ce GIT. Il doit permettre d'enregister un serve
 Pour un client, ce serveur doit permettre de creer/connecter des utilisateurs, de recuperer des valeurs de channels, de definir leur valeur, d'enregistrer des fixtures, d'enregistrer une interface graphique sur son compte utilisateur,  de lister ses appareils, se connecter a un appareil, et de recuperer la qualite de connexion de l'appareil.
 Dautres fonctionnalites peuvent etre ajoutees en cours de creation (fonctions, timeline...).
 
-L'objectif de la version 0.3 est de prodiguer la possibilité de contrôler un appareil DMX seul, via une interface Web) via des sliders et des boutons. 
+L'objectif de la version 0.1 est de prodiguer la possibilité de contrôler un appareil DMX seul, via une interface Web) via des sliders et des boutons.
 
-Dans la version 0.5, il sera possible de creer des comptes utilisateurs et d'enregistrer des fixtures.
+Dans la version 0.2, il sera possible de creer des comptes utilisateurs et d'enregistrer des fixtures.
 
 Nous avons vu que nous allions utiliser SocketIO pour ces transferts de donnees.
 Precisons que les channels sont indicees entre 0 et 511, mais dans les vues, l'indiçage commencera bien évidemment à 1.
@@ -38,19 +38,21 @@ Voici les évenements auquels le serveur pourra repondre:
 
 	- "getChannels" :
 		- Permet de récupérer les données d'un ensemble de channels
-		- INPUT: Objet JavaScript avec pour données :
-  			- channels : Array<int>
-		- OUTPUT: Objet JavaScript avec pour donnees: 
-  			- values: Array<Object> chaque objet ayant une clé index et value.
-  
+		- INPUT:
+  			channels : Array<int> correspondant aux indices (donc de 0 à 511) dont on veut récupérer les valeurs
+		- OUTPUT: Objet JavaScript avec pour donnees:
+  			values: Array<Object> chaque objet ayant une clé index et value.
+
   	- "getAllChannels" :
 		- Permet de récupérer l'intégralité des channels avec leurs valeurs
 		- INPUT: aucun
 		- OUTPUT: Array<Object>(512) chaque objet representant une channel avec son index, et sa valeur.
 
   	- "setChannel" :
-		- Permet de efinir la valeur d'une channel.
-		- INPUT: Objet JavaScript representant une channel: index, value
+		- Permet de définir la valeur d'une channel.
+		- INPUT:
+		    index: int - index de la channel à modifier (entre 0 et 511)
+            value: int - valeur à attribuer (entre 0 et 255)
 		- OUTPUT: aucun
 
 La suite viendra ultérieurement, de nombreuses discussions sont en cours sur la gestion des entrées et sorties.
