@@ -29,6 +29,5 @@ deploy:
   tags: 
     - docker
   script:
-    - ssh root@vps.noeldupuis.fr
-    - forever stopall
+    - ssh root@vps.noeldupuis.fr forever stopall
     - forever start bin/www
