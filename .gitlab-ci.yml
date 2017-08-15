@@ -29,6 +29,4 @@ deploy:
   tags: 
     - docker
   script:
-    - ssh root@vps.noeldupuis.fr forever stopall
-    - ssh root@vps.noeldupuis.fr cd /var/DMXController/backend && git pull && npm install
-    - ssh root@vps.noeldupuis.fr forever start /var/DMXController/backend/app.js
+    - ssh root@vps.noeldupuis.fr /var/DMXController/script.sh
