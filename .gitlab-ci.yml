@@ -2,11 +2,6 @@ image: ubuntu:xenial
 
 before_script:
   - apt update && apt upgrade -y
-  - apt install -y curl openssh-client
-  - eval $(ssh-agent -s)
-  - ssh-add <(echo "$SSH_PRIVATE_KEY")
-  - mkdir -p ~/.ssh
-  - '[[ -f /.dockerenv ]] && echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config'
 
 stages:
   - build
@@ -17,6 +12,7 @@ build:
   tags: 
     - docker
   script:
+    - apt install -y curl
     - curl -sL https://deb.nodesource.com/setup_6.x | bash -
     - apt install -y nodejs
     - npm install
@@ -29,4 +25,9 @@ deploy:
   tags: 
     - docker
   script:
+    - apt install -y openssh-client
+    - eval $(ssh-agent -s)
+    - ssh-add <(echo "$SSH_PRIVATE_KEY")
+    - mkdir -p ~/.ssh
+    - '[[ -f /.dockerenv ]] && echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config'
     - ssh root@vps.noeldupuis.fr /var/DMXController/script.sh
