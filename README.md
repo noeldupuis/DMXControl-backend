@@ -56,4 +56,3 @@ Voici les évenements auquels le serveur pourra repondre:
 		- OUTPUT: aucun
 
 La suite viendra ultérieurement, de nombreuses discussions sont en cours sur la gestion des entrées et sorties.
-
