@@ -7,9 +7,6 @@ before_script:
   - ssh-add <(echo "$SSH_PRIVATE_KEY")
   - mkdir -p ~/.ssh
   - '[[ -f /.dockerenv ]] && echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config'
-  - curl -sL https://deb.nodesource.com/setup_6.x | bash -
-  - apt install -y nodejs
-  - npm install
 
 stages:
   - build
@@ -20,6 +17,9 @@ build:
   tags: 
     - docker
   script:
+    - curl -sL https://deb.nodesource.com/setup_6.x | bash -
+    - apt install -y nodejs
+    - npm install
     - npm build
 
 deploy:
