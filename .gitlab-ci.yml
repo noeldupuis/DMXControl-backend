@@ -30,4 +30,5 @@ deploy:
     - docker
   script:
     - ssh root@vps.noeldupuis.fr forever stopall
-    - forever start bin/www
+    - ssh root@vps.noeldupuis.fr cd /var/DMXController/backend && git pull && npm install
+    - ssh root@vps.noeldupuis.fr forever start /var/DMXController/backend/app.js
