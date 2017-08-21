@@ -56,3 +56,10 @@ Voici les évenements auquels le serveur pourra repondre:
 		- OUTPUT: aucun
 
 La suite viendra ultérieurement, de nombreuses discussions sont en cours sur la gestion des entrées et sorties.
+
+## Outils
+
+ - NodeJS 6.x 
+    - curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
+    - sudo apt-get install -y nodejs 
+ - [SocketIO tester](https://chrome.google.com/webstore/detail/socketio-tester/cgmimdpepcncnjgclhnhghdooepibakm?hl=en)
